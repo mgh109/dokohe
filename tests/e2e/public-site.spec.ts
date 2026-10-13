@@ -61,3 +61,16 @@ test('malformed cart storage and script-like queries remain inert', async ({ pag
     false,
   );
 });
+
+test('header remains accessible while scrolling and roadmap uses the updated design', async ({
+  page,
+}, testInfo) => {
+  await page.goto('/');
+  await page.locator('#roadmap').scrollIntoViewIfNeeded();
+  await expect
+    .poll(async () => Math.round((await page.locator('.site-header').boundingBox())?.y ?? -1))
+    .toBe(testInfo.project.name === 'mobile' ? 8 : 16);
+  await expect(page.locator('.roadmap-step__border')).toHaveCount(4);
+  await page.locator('.site-header a[aria-label="صفحه اصلی به رسم دوکوهه"]').click();
+  await expect(page.getByRole('heading', { name: 'آکادمی آموزش به رسم دوکوهه' })).toBeVisible();
+});
