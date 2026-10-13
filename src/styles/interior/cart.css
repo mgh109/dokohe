@@ -1,0 +1,169 @@
+/* cart styles for the public Figma screens. */
+
+.cart-dialog {
+  position: fixed;
+  margin: auto;
+  border: 0;
+  padding: 0;
+  width: min(700px, calc(100% - 32px));
+  max-height: calc(100dvh - 48px);
+  overflow: auto;
+  border-radius: 40px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 15px 50px #0000001a;
+}
+.cart-dialog::backdrop {
+  backdrop-filter: blur(7px);
+  background: #ffffff45;
+}
+.cart-sheet__heading {
+  padding: 22px 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--green);
+  color: white;
+}
+.cart-sheet__heading h1 {
+  font-size: 26px;
+}
+.cart-sheet__heading span {
+  font-size: 20px;
+}
+.cart-sheet__items {
+  padding: 15px 35px 0;
+}
+.cart-item {
+  display: grid;
+  grid-template-columns: 38px 100px minmax(0, 1fr) auto;
+  gap: 15px;
+  align-items: center;
+  padding: 22px 0;
+  border-bottom: 1px dashed #ddd;
+  font-size: 16px;
+}
+.cart-item > img {
+  border-radius: 15px;
+  object-fit: cover;
+}
+.cart-delete {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  background: #ff7d81;
+  border-radius: 50%;
+}
+.cart-delete img {
+  width: 17px;
+  height: 24px;
+}
+.cart-item .price {
+  font-size: 14px;
+}
+.cart-sheet__summary {
+  padding: 30px 35px;
+}
+.coupon-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 25px;
+  border-bottom: 1px dashed #ddd;
+}
+.coupon-field input {
+  max-width: 300px;
+  min-height: 50px;
+}
+.cart-sheet__summary dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 18px;
+}
+.cart-discount {
+  color: #ff7d81;
+}
+.cart-total {
+  border-top: 1px solid #eee;
+  margin-top: 24px;
+  padding-top: 24px;
+  color: #189551;
+  font-weight: 700;
+}
+.cart-sheet__summary > p {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 18px;
+}
+.cart-sheet__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 35px;
+  gap: 20px;
+  border-top: 5px dotted #ccc;
+  font-size: 16px;
+}
+.cart-preview-background {
+  min-height: 70vh;
+}
+@media (max-width: 760px) {
+  .cart-dialog {
+    border-radius: 25px;
+  }
+  .cart-sheet__heading {
+    padding: 20px;
+  }
+  .cart-sheet__heading h1 {
+    font-size: 22px;
+  }
+  .cart-sheet__heading span {
+    font-size: 14px;
+  }
+  .cart-sheet__items,
+  .cart-sheet__summary {
+    padding-inline: 20px;
+  }
+  .cart-item {
+    grid-template-columns: 32px 65px minmax(0, 1fr);
+    font-size: 13px;
+    gap: 10px;
+  }
+  .cart-item > img {
+    width: 65px;
+    height: 55px;
+  }
+  .cart-item .price {
+    grid-column: 3;
+    text-align: right;
+  }
+  .coupon-field input {
+    max-width: 60%;
+  }
+  .cart-sheet__footer {
+    padding: 20px;
+    font-size: 12px;
+  }
+  .cart-sheet__footer .button {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+
+.cart-item > img {
+  width: 100px;
+  height: 75px;
+}
+@media (max-width: 760px) {
+  .cart-item > img {
+    width: 65px;
+    height: 55px;
+  }
+}
+.cart-dialog:focus-visible {
+  outline: none;
+}

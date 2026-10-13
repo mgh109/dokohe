@@ -15,20 +15,22 @@ export function LoginForm() {
     );
   }
   return (
-    <form className="form" onSubmit={submit}>
-      <label htmlFor="mobile">شماره موبایل</label>
+    <form className="form auth-form" onSubmit={submit}>
+      <label className="sr-only" htmlFor="mobile">
+        شماره موبایل
+      </label>
       <input
         id="mobile"
         name="mobile"
         type="tel"
         inputMode="tel"
         autoComplete="tel-national"
-        placeholder="۰۹۱۲۳۴۵۶۷۸۹"
+        placeholder="شماره موبایل"
         maxLength={11}
         required
         dir="ltr"
       />
-      <p className="form-note">ورود و ارسال پیامک هنوز به بک‌اند متصل نیست.</p>
+      <p className="auth-notice">ارسال کد ورود فعلاً فعال نیست.</p>
       <Button type="submit">بررسی شماره موبایل</Button>
       {message ? <p role="status">{message}</p> : null}
     </form>

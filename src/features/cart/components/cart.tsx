@@ -1,8 +1,10 @@
 'use client';
 import { useSyncExternalStore, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { formatPrice } from '@/lib/format';
+import { DesignIcon } from '@/components/ui/design-icon';
+import { formatNumber, formatPrice } from '@/lib/format';
 import type { Course } from '@/features/courses/types';
 import { readCart, writeCart } from '../lib/cart-storage';
 function subscribe(callback: () => void) {
@@ -32,17 +34,21 @@ export function Cart({ courses }: { courses: Course[] }) {
     /* Invalid storage is treated as empty. */
   }
   const selected = courses.filter((course) => slugs.includes(course.slug));
+  const total = selected.reduce((sum, course) => sum + course.price, 0),
+    original = selected.reduce((sum, course) => sum + (course.originalPrice ?? course.price), 0);
   return (
-    <div className="panel">
+    <div className="cart-sheet">
+      <div className="cart-sheet__heading">
+        <h1 id="cart-title">سبد خرید</h1>
+        <span>{formatNumber(selected.length)} مورد</span>
+      </div>
       {selected.length ? (
         <>
-          <div>
+          <div className="cart-sheet__items">
             {selected.map((course) => (
-              <div className="lesson-row card-row" key={course.id}>
-                <Link href={`/courses/${course.slug}`}>{course.title}</Link>
-                <span>{formatPrice(course.price)}</span>
-                <Button
-                  variant="outline"
+              <div className="cart-item" key={course.id}>
+                <button
+                  className="cart-delete"
                   onClick={() => {
                     try {
                       writeCart(readCart().filter((slug) => slug !== course.slug));
@@ -52,19 +58,42 @@ export function Cart({ courses }: { courses: Course[] }) {
                   }}
                   aria-label={`حذف ${course.title}`}
                 >
-                  حذف
-                </Button>
+                  <DesignIcon name="delete" />
+                </button>
+                <Image src={course.image} width={100} height={75} alt="" />
+                <Link href={`/courses/${course.slug}`}>{course.title}</Link>
+                <div className="price">
+                  {course.originalPrice ? <del>{formatPrice(course.originalPrice)}</del> : null}
+                  <strong>{formatPrice(course.price)}</strong>
+                </div>
               </div>
             ))}
           </div>
-          <p>
-            مجموع:{' '}
-            <strong>{formatPrice(selected.reduce((sum, course) => sum + course.price, 0))}</strong>
-          </p>
-          <p className="form-note">
-            قیمت نهایی و مجوز ثبت‌نام باید توسط بک‌اند تأیید شود. پرداخت هنوز فعال نیست.
-          </p>
-          <Button disabled>ادامه و پرداخت</Button>
+          <div className="cart-sheet__summary">
+            <div className="coupon-field">
+              <label htmlFor="coupon">کد تخفیف</label>
+              <input id="coupon" maxLength={50} disabled aria-describedby="checkout-notice" />
+            </div>
+            <dl>
+              <div>
+                <dt>قیمت اصلی</dt>
+                <dd>{formatPrice(original)}</dd>
+              </div>
+              <div className="cart-discount">
+                <dt>تخفیف</dt>
+                <dd>{formatPrice(original - total)}</dd>
+              </div>
+              <div className="cart-total">
+                <dt>قیمت نهایی</dt>
+                <dd>{formatPrice(total)}</dd>
+              </div>
+            </dl>
+            <p id="checkout-notice">پرداخت و اعمال کد تخفیف فعلاً فعال نیست.</p>
+          </div>
+          <div className="cart-sheet__footer">
+            <Link href="/courses">انصراف از خرید و بازگشت ‹</Link>
+            <Button disabled>ادامه و پرداخت</Button>
+          </div>
         </>
       ) : (
         <div className="empty-state">

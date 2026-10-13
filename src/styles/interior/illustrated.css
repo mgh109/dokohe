@@ -1,0 +1,219 @@
+/* illustrated styles for the public Figma screens. */
+
+.illustrated-page {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding-top: 240px;
+}
+.illustrated-page--about {
+  padding-bottom: 650px;
+}
+.illustrated-page--contact {
+  padding-top: 267px;
+  padding-bottom: 360px;
+}
+.illustrated-shell {
+  width: min(1047px, calc(100% - 40px));
+  margin-inline: auto;
+  position: relative;
+  z-index: 1;
+}
+.illustrated-art {
+  display: block;
+  margin-inline: auto;
+  position: relative;
+  z-index: 2;
+}
+.illustrated-panel {
+  position: relative;
+  margin-top: -291px;
+  text-align: center;
+  color: white;
+  padding: 290px 60px 90px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.illustrated-panel--about {
+  background-image: url('/assets/about-panel.svg');
+  min-height: 880px;
+}
+.illustrated-panel h1 {
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+.about-copy {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.7;
+}
+.about-copy p + p {
+  margin-top: 25px;
+}
+.illustrated-panel--contact {
+  background-image: url('/assets/contact-panel.svg');
+  margin-top: -284px;
+  padding: 350px 70px 80px;
+  min-height: 1183px;
+}
+.contact-intro {
+  font-size: 28px;
+  line-height: 1.6;
+  margin-bottom: 55px;
+}
+.contact-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 400px) minmax(0, 475px);
+  gap: 35px;
+  align-items: stretch;
+}
+.contact-form {
+  max-width: none;
+  gap: 30px;
+}
+.contact-form input,
+.contact-form textarea {
+  background: rgb(255 255 255 / 90%);
+  border: 0;
+  box-shadow: 0 4px 5px #00000019;
+  border-radius: 15px;
+  color: #424242;
+  font-size: 16px;
+  padding: 16px 20px;
+  width: 100%;
+}
+.contact-form input {
+  min-height: 60px;
+}
+.contact-form textarea {
+  min-height: 200px;
+}
+.contact-form .button {
+  background: var(--purple);
+  align-self: center;
+  min-width: 180px;
+}
+.contact-form__notice {
+  font-size: 12px;
+  margin-top: -15px;
+}
+.contact-form [role='status'] {
+  font-size: 14px;
+}
+.contact-social {
+  padding: 70px 30px;
+  border-radius: 30px;
+  background: rgb(255 255 255 / 85%);
+  color: var(--purple);
+  font-size: 18px;
+  line-height: 2;
+  align-self: start;
+  min-height: 470px;
+}
+.contact-social hr {
+  border: 0;
+  border-top: 1px solid #dfd2ed;
+  margin: 35px 0;
+}
+.interior-lights {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.interior-lights img {
+  position: absolute;
+  max-width: none;
+}
+.interior-lights img:first-child {
+  top: 20px;
+  left: -360px;
+}
+.interior-lights img:last-child {
+  top: 1100px;
+  right: -100px;
+}
+.interior-lights img {
+  animation: glow-drift 64s ease-in-out infinite alternate;
+}
+.interior-lights img:last-child {
+  animation-duration: 94s;
+  animation-delay: -50s;
+}
+@media (max-width: 1024px) {
+  .about-copy {
+    font-size: 23px;
+  }
+  .illustrated-panel {
+    padding-inline: 35px;
+  }
+  .contact-columns {
+    gap: 25px;
+  }
+  .contact-social {
+    padding: 45px 20px;
+    font-size: 16px;
+  }
+}
+@media (max-width: 760px) {
+  .illustrated-page,
+  .illustrated-page--contact {
+    padding-top: 80px;
+    padding-bottom: 100px;
+  }
+  .illustrated-art--about {
+    width: min(721px, 85%);
+  }
+  .illustrated-art--contact {
+    width: min(831px, 90%);
+  }
+  .illustrated-panel {
+    margin-top: -100px;
+    padding: 110px 25px 60px;
+    min-height: 0;
+  }
+  .illustrated-panel h1 {
+    font-size: 30px;
+    margin-bottom: 25px;
+  }
+  .about-copy {
+    font-size: 18px;
+    line-height: 1.9;
+  }
+  .contact-intro {
+    font-size: 18px;
+    margin-bottom: 35px;
+  }
+  .contact-columns {
+    grid-template-columns: 1fr;
+  }
+  .contact-social {
+    min-height: 0;
+  }
+  .contact-form {
+    gap: 20px;
+  }
+  .contact-form input {
+    min-height: 50px;
+  }
+  .interior-lights img:last-child {
+    top: 600px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .interior-lights img {
+    animation: none;
+    transform: none;
+  }
+}
+.interior-lights img {
+  mask-image: radial-gradient(ellipse, black 35%, transparent 72%);
+}
+@media (max-width: 760px) {
+  .illustrated-panel {
+    background-image: radial-gradient(at bottom right, #d5c7e4, #b09cc8);
+    border-radius: 48px;
+    box-shadow: 0 4px 4px #00000016;
+  }
+}

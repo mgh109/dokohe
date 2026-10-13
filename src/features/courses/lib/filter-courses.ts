@@ -23,6 +23,7 @@ export function filterCourses(courses: readonly Course[], filters: CourseFilters
       (!filters.freeOnly || course.price === 0),
   );
   if (filters.sort === 'price') result.sort((a, b) => a.price - b.price);
+  if (filters.sort === 'expensive') result.sort((a, b) => b.price - a.price);
   if (filters.sort === 'popular')
     result.sort((a, b) => b.students - a.students || b.rating - a.rating);
   return result;

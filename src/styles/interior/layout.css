@@ -1,0 +1,61 @@
+/* layout styles for the public Figma screens. */
+
+.site-frame--interior .site-header {
+  margin-top: 53px;
+}
+.site-frame--interior .site-footer {
+  margin-top: 0;
+}
+.interior-page {
+  padding-block: 40px 90px;
+}
+.detail-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  min-height: 50px;
+  padding: 12px 18px;
+  border-radius: 15px;
+  background: var(--surface);
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+.detail-breadcrumb [aria-current] {
+  color: var(--text);
+}
+.article-detail {
+  min-height: 3727px;
+}
+.social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin-block: 25px;
+}
+.social-icons img {
+  max-width: 100%;
+  height: auto;
+}
+@media (max-width: 760px) {
+  .site-frame--interior .site-header {
+    margin-top: 15px;
+  }
+  .interior-page {
+    padding-top: 30px;
+  }
+  .article-detail {
+    min-height: 0;
+  }
+  .detail-breadcrumb {
+    font-size: 12px;
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+}
+
+.footer-social .social-icons img {
+  width: auto;
+  height: auto;
+}

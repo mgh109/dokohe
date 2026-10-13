@@ -22,6 +22,6 @@ export const mockCourses: readonly Course[] = titles.map((title, index) => ({
   rating: 4.6,
   students: 236,
   image: '/assets/course-cover.png',
-  lessons: 8,
+  lessons: 16,
   duration: '۴ ساعت و ۳۰ دقیقه',
 }));

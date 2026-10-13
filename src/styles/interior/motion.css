@@ -1,0 +1,38 @@
+/* motion styles for the public Figma screens. */
+
+.home-decoration {
+  animation: glow-drift 64s ease-in-out infinite alternate;
+}
+.home-decoration--2 {
+  animation-duration: 78s;
+  animation-delay: -28s;
+}
+.home-decoration--3 {
+  animation-duration: 86s;
+  animation-delay: -44s;
+}
+.home-decoration--4 {
+  animation-duration: 72s;
+  animation-delay: -18s;
+}
+.home-decoration--5 {
+  animation-duration: 94s;
+  animation-delay: -50s;
+}
+@keyframes glow-drift {
+  0% {
+    transform: translate3d(-18px, 10px, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(12px, -20px, 0) scale(1.025);
+  }
+  100% {
+    transform: translate3d(32px, 18px, 0) scale(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-decoration {
+    animation: none;
+    transform: none;
+  }
+}

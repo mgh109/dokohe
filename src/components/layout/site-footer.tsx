@@ -1,3 +1,4 @@
+import { SocialIcons } from '@/components/ui/social-icons';
 import Image from 'next/image';
 import Link from 'next/link';
 export function SiteFooter() {
@@ -34,28 +35,8 @@ export function SiteFooter() {
           />
         </section>
       </div>
-      <div className="footer-social" aria-label="شبکه‌های اجتماعی">
-        <Image
-          src="/assets/social-1.svg"
-          width={25}
-          height={25}
-          alt="نماد شبکه اجتماعی"
-          unoptimized
-        />
-        <Image
-          src="/assets/social-2.svg"
-          width={25}
-          height={25}
-          alt="نماد شبکه اجتماعی"
-          unoptimized
-        />
-        <Image
-          src="/assets/social-3.svg"
-          width={25}
-          height={25}
-          alt="نماد شبکه اجتماعی"
-          unoptimized
-        />
+      <div className="footer-social">
+        <SocialIcons />
       </div>
       <p className="footer-copy">کلیه حقوق مادی و معنوی سایت برای به رسم دوکوهه محفوظ است.</p>
     </footer>

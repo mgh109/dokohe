@@ -1,0 +1,255 @@
+/* catalog styles for the public Figma screens. */
+
+.catalog-page {
+  padding-top: 50px;
+  min-height: 3167px;
+}
+.catalog-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  gap: 20px;
+}
+.catalog-heading h1 {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 28px;
+}
+.catalog-heading > span {
+  font-size: 20px;
+  color: #e9686d;
+}
+.catalog-heading--articles > span {
+  color: #ebb02e;
+}
+.catalog-layout--figma {
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 25px;
+}
+.catalog-sidebar form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.catalog-search {
+  display: flex;
+  align-items: center;
+  min-height: 70px;
+  background: var(--surface);
+  padding: 12px 20px;
+  border-radius: 15px;
+}
+.catalog-search input {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  min-width: 0;
+  width: 100%;
+  font-size: 14px;
+}
+.catalog-search button {
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+.catalog-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: var(--surface);
+  min-height: 70px;
+  border-radius: 15px;
+  font-size: 14px;
+  position: relative;
+}
+.catalog-toggle input {
+  position: absolute;
+  width: 44px;
+  height: 24px;
+  left: 20px;
+  opacity: 0;
+  margin: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+.toggle-track {
+  width: 44px;
+  height: 24px;
+  border-radius: 99px;
+  background: #d2d2d2;
+  position: relative;
+}
+.toggle-track::after {
+  content: '';
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  border-radius: 50%;
+  background: white;
+  transition: transform 0.2s;
+}
+.catalog-toggle input:checked + .toggle-track {
+  background: #56bf9e;
+}
+.catalog-toggle input:checked + .toggle-track::after {
+  transform: translateX(20px);
+}
+.catalog-toggle input:focus-visible + .toggle-track {
+  outline: 3px solid #e4a321;
+  outline-offset: 4px;
+}
+.catalog-categories {
+  background: var(--surface);
+  padding: 22px;
+  border: 0;
+  border-radius: 15px;
+  margin: 0;
+}
+.catalog-categories legend {
+  float: right;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 22px;
+  font-size: 14px;
+}
+.catalog-categories label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-block: 10px;
+  font-size: 14px;
+  clear: both;
+}
+.catalog-categories input {
+  accent-color: var(--purple);
+}
+.catalog-sort {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  min-height: 70px;
+  background: var(--surface);
+  border-radius: 15px;
+  padding: 14px 22px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+.catalog-sort > span {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.catalog-sort a {
+  position: relative;
+  white-space: nowrap;
+}
+.catalog-sort a[aria-current] {
+  color: #ebb02e;
+  font-weight: 700;
+}
+.catalog-sort a[aria-current]::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -22px;
+  height: 2px;
+  background: #ebb02e;
+}
+.catalog-results .course-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.catalog-results .course-card {
+  min-height: 460px;
+}
+.catalog-results .article-card {
+  min-height: 490px;
+}
+@media (max-width: 1250px) {
+  .catalog-sort {
+    gap: 15px;
+    font-size: 14px;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 1024px) {
+  .catalog-layout--figma {
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 20px;
+  }
+  .catalog-results .course-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  .catalog-page {
+    min-height: 0;
+  }
+  .catalog-heading {
+    margin-bottom: 25px;
+  }
+  .catalog-heading h1 {
+    font-size: 22px;
+  }
+  .catalog-heading > span {
+    font-size: 13px;
+  }
+  .catalog-heading h1 img {
+    width: 30px;
+  }
+  .catalog-layout--figma {
+    grid-template-columns: 1fr;
+  }
+  .catalog-sidebar form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+  .catalog-search,
+  .catalog-categories {
+    grid-column: 1/-1;
+  }
+  .catalog-categories label {
+    display: inline-flex;
+    padding-inline-end: 20px;
+  }
+  .catalog-sidebar .text-link {
+    align-self: center;
+    justify-self: center;
+  }
+  .catalog-results .course-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .catalog-sort a[aria-current]::before {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .catalog-results .course-grid {
+    grid-template-columns: 1fr;
+  }
+  .catalog-heading {
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .catalog-heading h1 {
+    font-size: 19px;
+  }
+  .catalog-heading > span {
+    white-space: nowrap;
+  }
+  .catalog-sort {
+    gap: 15px;
+    padding: 14px;
+  }
+  .catalog-sort > span {
+    width: 100%;
+  }
+}

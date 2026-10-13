@@ -1,0 +1,99 @@
+/* auth styles for the public Figma screens. */
+
+.auth-page {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 50px 20px;
+}
+.auth-shell {
+  width: 330px;
+  max-width: 100%;
+  text-align: center;
+}
+.auth-shell > a {
+  display: block;
+  margin-bottom: 15px;
+}
+.auth-shell > a img {
+  display: block;
+  margin-inline: auto;
+}
+.auth-card {
+  padding: 25px;
+  background: var(--surface);
+  border-radius: 30px;
+  box-shadow: 0 0 30px #0000000d;
+}
+.auth-progress {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 32px;
+  gap: 15px;
+}
+.auth-progress li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 10px;
+  color: var(--muted);
+  gap: 8px;
+}
+.auth-progress span {
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  background: #dbd5e7;
+  color: white;
+  border-radius: 50%;
+  font-size: 10px;
+}
+.auth-progress li[aria-current] span {
+  background: #7960b0;
+}
+.auth-card h1 {
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+.auth-card > p {
+  font-size: 12px;
+  margin-bottom: 28px;
+}
+.auth-card > p span {
+  color: #56bf9e;
+}
+.auth-form input {
+  width: 100%;
+  background: var(--background);
+  border: 0;
+  font-size: 12px;
+  border-radius: 8px;
+}
+.auth-form .button {
+  min-height: 50px;
+  background: #56bf9e;
+  border-radius: 10px;
+  font-size: 14px;
+}
+.auth-notice {
+  font-size: 10px;
+  color: var(--muted);
+}
+.auth-form [role='status'] {
+  font-size: 11px;
+}
+.auth-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  font-size: 12px;
+  color: #7960b0;
+}
+.auth-terms {
+  margin-top: 25px;
+  font-size: 13px;
+  line-height: 1.9;
+}

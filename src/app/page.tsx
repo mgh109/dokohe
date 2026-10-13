@@ -43,7 +43,7 @@ export default async function HomePage() {
           href="/articles"
         />
         <div className="course-grid">
-          {articles.map((article) => (
+          {articles.slice(0, 4).map((article) => (
             <ArticleCard article={article} key={article.id} />
           ))}
         </div>
